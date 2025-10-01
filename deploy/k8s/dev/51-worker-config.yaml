@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: worker-config
+  namespace: pulsewatch
+data:
+  TICK_MS: "5000"          # scheduler loop tick
+  CLAIM_LIMIT: "8"
+  LOG_LEVEL: "info"

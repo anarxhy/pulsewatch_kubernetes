@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web
+  namespace: pulsewatch
+spec:
+  replicas: 1
+  selector: { matchLabels: { app: web } }
+  template:
+    metadata: { labels: { app: web } }
+    spec:
+      containers:
+        - name: web
+          image: pulsewatch-web:dev
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: http
+              containerPort: 5173
+          env:
+            # optional: if your app reads this at runtime
+            - name: VITE_API_BASE
+              value: "http://localhost:3001"
+          readinessProbe:
+            httpGet: { path: "/", port: 5173 }
+            initialDelaySeconds: 3
+          livenessProbe:
+            httpGet: { path: "/", port: 5173 }
+            initialDelaySeconds: 10
