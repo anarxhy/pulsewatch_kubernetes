@@ -1,19 +1,34 @@
-# Ingress: allow anyone in the namespace to call the API (adjust later if needed)
+# API: allow ingress from web, and egress to Postgres + Redis
 apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
-  name: api-allow-namespace
+  name: api-policy
   namespace: pulsewatch
 spec:
-  podSelector: { matchLabels: { app: api } }
+  podSelector:
+    matchLabels:
+      app: api
   policyTypes: ["Ingress","Egress"]
   ingress:
     - from:
-        - podSelector: {}   # any pod in pulsewatch
+        - podSelector:
+            matchLabels:
+              app: web
+      ports:
+        - protocol: TCP
+          port: 3001
   egress:
     - to:
-        - podSelector: { matchLabels: { app: postgres } }
-      ports: [{ protocol: TCP, port: 5432 }]
+        - podSelector:
+            matchLabels:
+              app: postgres
+      ports:
+        - protocol: TCP
+          port: 5432
     - to:
-        - podSelector: { matchLabels: { app: redis } }
-      ports: [{ protocol: TCP, port: 6379 }]
+        - podSelector:
+            matchLabels:
+              app: redis
+      ports:
+        - protocol: TCP
+          port: 6379
