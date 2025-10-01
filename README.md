@@ -13,8 +13,11 @@ PulseWatch on Kubernetes, Architecture &amp; Migration Plan
 
 - Scalable: horizontal autoscaling, stateless services; managed data stores in prod.
 
+# Current Architecture
 
-# Target architecture (baseline)
+![*alt text*](<Untitled diagram _ Mermaid Chart-2025-10-01-175823.png>)
+
+# Target architecture +  K8s on AWS ( Production)
 
 
 - Namespaces: one per env (dev, staging, prod) + platform for shared addons.
@@ -76,6 +79,7 @@ PulseWatch on Kubernetes, Architecture &amp; Migration Plan
 
 ## Helm layout
 ```
+
 pulsewatch-k8s/
 ├─ charts/
 │  ├─ api/
@@ -83,14 +87,17 @@ pulsewatch-k8s/
 │  ├─ web/
 │  ├─ redis/          # optional: use bitnami for speed
 │  └─ migrations/     # Flyway Job chart (image + args)
+
 ├─ envs/
 │  ├─ dev/values.yaml
 │  ├─ staging/values.yaml
 │  └─ prod/values.yaml
+
 ├─ platform/          # ingress, cert-manager, monitoring (phase 2)
 └─ docs/
    ├─ ARCHITECTURE.md
    └─ DECISIONS.md
+
 ```
 
 # Per-chart must-haves
