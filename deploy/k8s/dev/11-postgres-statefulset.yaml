@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: postgres
+  namespace: pulsewatch
+spec:
+  serviceName: postgres
+  replicas: 1
+  selector: { matchLabels: { app: postgres } }
+  template:
+    metadata: { labels: { app: postgres } }
+    spec:
+      containers:
+        - name: db
+          image: postgres:16
+          ports: [{ name: psql, containerPort: 5432 }]
+          envFrom:
+            - secretRef: { name: postgres-auth }
+          env:
+            - name: PGDATA
+              value: /var/lib/postgresql/data/pgdata
+          volumeMounts:
+            - { name: data, mountPath: /var/lib/postgresql/data }
+          readinessProbe:
+            exec: { command: ["pg_isready","-U","postgres","-d","pulsewatch"] }
+            initialDelaySeconds: 5
+          livenessProbe:
+            exec: { command: ["pg_isready","-U","postgres","-d","pulsewatch"] }
+            initialDelaySeconds: 15
+          securityContext:
+            allowPrivilegeEscalation: false
+            runAsUser: 999        # <- explicit non-root UID (satisfies runAsNonRoot)
+            runAsGroup: 999
+  volumeClaimTemplates:
+    - metadata: { name: data }
+      spec:
+        accessModes: ["ReadWriteOnce"]
+        resources: { requests: { storage: 2Gi } }

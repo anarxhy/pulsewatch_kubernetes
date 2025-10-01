@@ -1,0 +1,18 @@
+# Allow only namespace-local clients to reach Postgres:5432 (tighten later per app)
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: postgres-allow-namespace
+  namespace: pulsewatch
+spec:
+  podSelector:
+    matchLabels: { app: postgres }
+  policyTypes: ["Ingress"]
+  ingress:
+    - from:
+        - namespaceSelector:
+            matchLabels:
+              kubernetes.io/metadata.name: pulsewatch
+      ports:
+        - protocol: TCP
+          port: 5432
