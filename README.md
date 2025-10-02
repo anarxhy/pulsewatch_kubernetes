@@ -15,7 +15,7 @@ PulseWatch on Kubernetes, Architecture &amp; Migration Plan
 
 # Current Architecture
 
-![*alt text*](<Untitled diagram _ Mermaid Chart-2025-10-01-175823.png>)
+![*alt text*](<architecture.png>)
 
 # Target architecture +  K8s on AWS ( Production)
 
