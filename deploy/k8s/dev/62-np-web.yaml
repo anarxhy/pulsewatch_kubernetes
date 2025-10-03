@@ -1,0 +1,31 @@
+# Public -> web:80
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: web-ingress-public
+  namespace: pulsewatch
+spec:
+  podSelector: { matchLabels: { app: web } }
+  policyTypes: ["Ingress"]
+  ingress:
+    - from:
+        - ipBlock: { cidr: 0.0.0.0/0 }  
+      ports:
+        - protocol: TCP
+          port: 80
+---
+# web -> api:3001 (egress)
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: web-egress-to-api
+  namespace: pulsewatch
+spec:
+  podSelector: { matchLabels: { app: web } }
+  policyTypes: ["Egress"]
+  egress:
+    - to:
+        - podSelector: { matchLabels: { app: api } }
+      ports:
+        - protocol: TCP
+          port: 3001
