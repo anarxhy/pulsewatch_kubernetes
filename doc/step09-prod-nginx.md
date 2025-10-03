@@ -28,7 +28,7 @@ For production, we will use NGINX ingress to route traffic to the web and API se
 The application is now exposing via port 80 ( web) and 3001 ( API) inside the cluster.
 We need to update all the network policies to allow traffic to port 80 instead 
 (update in code and redeploy)
-```
+
 
 After making the changes, The application should be accessible 
 
@@ -36,3 +36,7 @@ After making the changes, The application should be accessible
 kubectl port-forward svc/web 8080:80 -n pulsewatch
 http://localhost:8080
 ```
+
+We can achieve the same thing using NodePort services, since we are using a local cluster, (ExternalPort should be also configured ( restart cluseter))
+
+but Ingress is more flexible and powerful.
