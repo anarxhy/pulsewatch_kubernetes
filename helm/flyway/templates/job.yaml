@@ -1,0 +1,29 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: flyway-migrate
+  namespace: pulsewatch
+spec:
+  backoffLimit: 1
+  template:
+    spec:
+      restartPolicy: Never
+      initContainers:  # ← ADD INIT CONTAINER TO WAIT FOR DB
+        - name: wait-for-db
+          image: postgres:16
+          command: ["sh","-c","until pg_isready -h {{ .Values.db.host }} -U {{ .Values.db.user }}; do sleep 2; done"]
+          env:
+            - name: PGPASSWORD
+              value: {{ .Values.db.password | quote }}  # ← USE PASSWORD FROM VALUES
+      containers:
+        - name: flyway
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          envFrom:
+            - secretRef:
+                name: flyway-secret
+          args:
+            # robust retries and safe adoption of an existing DB
+            - "-connectRetries=30"
+            - "-baselineOnMigrate=true"
+            - "migrate"

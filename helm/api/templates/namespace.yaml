@@ -1,0 +1,10 @@
+{{- if .Values.manageNamespace }}
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: pulsewatch
+  labels:
+    pod-security.kubernetes.io/enforce: baseline
+    pod-security.kubernetes.io/warn: restricted
+    pod-security.kubernetes.io/audit: restricted
+{{- end }}

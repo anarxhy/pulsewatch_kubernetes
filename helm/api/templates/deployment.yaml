@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api
+  namespace: pulsewatch
+spec:
+  replicas: 1
+  selector: { matchLabels: { app: api } }
+  template:
+    metadata: { labels: { app: api } }
+    spec:
+      containers:
+        - name: api
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports: [ { name: http, containerPort: {{ .Values.ports.http }} } ]
+          envFrom:
+            - secretRef: { name: {{ .Values.secret.name | quote }} }
+          startupProbe:
+            httpGet:
+                path: {{ .Values.health.path | quote }}
+                port: {{ .Values.ports.http }}
+            failureThreshold: 30
+            periodSeconds: 10
+          readinessProbe:
+            httpGet: { path: {{ .Values.health.path | quote }}, port: {{ .Values.ports.http }} }
+            initialDelaySeconds: 5
+            periodSeconds: 5
+          livenessProbe:
+            httpGet: { path: {{ .Values.health.path | quote }}, port: {{ .Values.ports.http }} }
+            initialDelaySeconds: 15
+            periodSeconds: 10
+            resources: {{- toYaml .Values.resources | nindent 12 }}

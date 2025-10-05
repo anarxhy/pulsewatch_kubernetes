@@ -1,0 +1,13 @@
+db:
+  host: postgres.pulsewatch.svc.cluster.local
+  user: "postgres"
+  password: "postgres"
+
+image:
+  repository: pulsewatch-migrations
+  tag: "dev"
+  pullPolicy: IfNotPresent
+
+networkPolicy:
+  enabled: true
+  dbPort: 5432

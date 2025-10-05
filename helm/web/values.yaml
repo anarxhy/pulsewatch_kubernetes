@@ -1,0 +1,30 @@
+manageNamespace: false
+replicaCount: 1
+
+image:
+  repository: pulsewatch-web
+  tag: prod
+  pullPolicy: IfNotPresent
+
+env:
+  API_NAME: "api"
+  API_HOST: api.pulsewatch.svc.cluster.local
+  API_PORT: "3001"
+
+ingress:
+  host: pulsewatch.local
+
+networkPolicy:
+  allowFromIngressNginx: true
+  allowProbesFromNodes: true
+  nodeCIDR: "172.18.0.0/16" 
+  egressToApi: true
+  apiPort: 3001
+
+resources:
+  requests:
+    memory: "128Mi"
+    cpu: "100m"
+  limits:
+    memory: "256Mi"
+    cpu: "500m"

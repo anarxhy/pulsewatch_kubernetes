@@ -1,0 +1,29 @@
+manageNamespace: false
+
+replicaCount: 1
+
+image:
+  repository: pulsewatch-worker
+  tag: dev
+  pullPolicy: IfNotPresent
+
+# Secret values
+secret:
+  databaseUrl: postgresql://postgres:postgres@postgres.pulsewatch.svc.cluster.local:5432/pulsewatch
+  redisUrl: redis://redis:6379
+
+# ConfigMap values
+config:
+  tickMs: "5000"       # scheduler loop tick
+  claimLimit: "8"
+  logLevel: "info"
+
+# Resource requests/limits (optional; can be empty)
+resources: {}
+
+# NetworkPolicy configuration (port numbers are fixed here)
+networkPolicy:
+  allowPostgresPort: 5432
+  allowRedisPort: 6379
+  allowHttp: true
+  allowHttps: true
