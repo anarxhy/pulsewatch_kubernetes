@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web
+  namespace: pulsewatch
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector: 
+    matchLabels: { app: web }
+  template:
+    metadata:
+      labels: { app: web }
+    spec:
+      containers:
+        - name: web
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - name: http
+              containerPort: 80
+          env:
+            - name: API_HOST
+              value: {{ .Values.env.API_HOST | quote }}
+            - name: API_PORT
+              value: {{ .Values.env.API_PORT | quote }}
+          resources: {{- toYaml .Values.resources | nindent 12 }}
+          # Start-up probe gives Nginx time to come up
+          startupProbe:
+            httpGet:
+              path: /
+              port: 80
+            failureThreshold: 30
+            periodSeconds: 10
+          # Readiness probe with modest delay
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 80
+            initialDelaySeconds: 5
+            periodSeconds: 5
+          # Liveness probe checks after startup
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 80
+            initialDelaySeconds: 15
+            periodSeconds: 20

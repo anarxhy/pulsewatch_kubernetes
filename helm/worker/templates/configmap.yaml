@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: worker-config
+  namespace: pulsewatch
+data:
+  TICK_MS: {{ .Values.config.tickMs | quote }}
+  CLAIM_LIMIT: {{ .Values.config.claimLimit | quote }}
+  LOG_LEVEL: {{ .Values.config.logLevel | quote }}

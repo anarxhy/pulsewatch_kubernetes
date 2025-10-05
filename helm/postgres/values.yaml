@@ -1,0 +1,22 @@
+manageNamespace: false
+
+replicaCount: 1
+
+image:
+  repository: postgres
+  tag: "16"
+  pullPolicy: IfNotPresent
+
+auth:
+  user: postgres
+  password: postgres
+  database: pulsewatch
+
+data:
+  size: 2Gi
+
+networkPolicy:
+  enabled: true
+  allowNamespaceSelector: pulsewatch
+
+resources: {}
