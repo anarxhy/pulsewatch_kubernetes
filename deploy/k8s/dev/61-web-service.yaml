@@ -1,13 +1,10 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: web-lb
+  name: web
   namespace: pulsewatch
-  annotations:
-    metallb.universe.tf/address-pool: kind-pool
 spec:
-  type: LoadBalancer
-  externalTrafficPolicy: Cluster
+  type: ClusterIP
   selector:
     app: web
   ports:

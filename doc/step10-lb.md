@@ -28,3 +28,6 @@ curl -X GET localhost
 
 ```
 
+For a local kind cluster, we can use a ClusterIP service and ingress-nginx.
+
+```
