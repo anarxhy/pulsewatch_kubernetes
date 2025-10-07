@@ -3,117 +3,62 @@ entries:
   api:
   - apiVersion: v2
     appVersion: 0.1.0
-    created: "2025-10-07T16:11:47.371033418+02:00"
-    digest: e3165a86ce18f2fdaf882c675e0bf758e38ec94771d4218931ef6e707cf6000b
+    created: "2025-10-07T17:29:29.829979018+02:00"
+    digest: 6a4b35d29ed996729f522909ecc09c07caf4ccb975cf42194025484d5d32928a
     name: api
     type: application
     urls:
     - https://amayache.github.io/pulsewatch_kubernetes/api-0.1.0.tgz
     version: 0.1.0
-  - apiVersion: v2
-    appVersion: 0.1.0
-    created: "2025-10-07T16:11:47.413965039+02:00"
-    digest: 04ae6a5ca224a1769ba6b3e40e782663caa5b47517aa3dffdb90d25f15e0f119
-    name: api
-    type: application
-    urls:
-    - https://amayache.github.io/pulsewatch_kubernetes/charts/api-0.1.0.tgz
-    version: 0.1.0
   flyway:
   - apiVersion: v2
     appVersion: "10"
-    created: "2025-10-07T16:11:47.379574909+02:00"
-    digest: 616b1a7697c0aa2484d8a04cc9ccd2413d24fbad400449c1408c8b5d12cf0bd5
+    created: "2025-10-07T17:29:29.836116517+02:00"
+    digest: 557928db8c1d89f2c96ab0194a7fc404563c84b4f9acbae30c3f5ebfcc3f05a2
     name: flyway
     type: application
     urls:
     - https://amayache.github.io/pulsewatch_kubernetes/flyway-0.1.0.tgz
     version: 0.1.0
-  - apiVersion: v2
-    appVersion: "10"
-    created: "2025-10-07T16:11:47.420708942+02:00"
-    digest: 38ab4811f5976ca5d73fb9e7a3c65ba04cdad1a16b94cfb11d41e9dfab3adffb
-    name: flyway
-    type: application
-    urls:
-    - https://amayache.github.io/pulsewatch_kubernetes/charts/flyway-0.1.0.tgz
-    version: 0.1.0
   postgres:
   - apiVersion: v2
     appVersion: 0.1.0
-    created: "2025-10-07T16:11:47.387573656+02:00"
-    digest: dad36fe86214ae85e8f179c6bad2fc09e2852947c03860adce78c3ad029adfb5
+    created: "2025-10-07T17:29:29.841679902+02:00"
+    digest: bb14313b9c992c3eeac3ee6b6fa320bb7278e65f1d7f153c9ed984c338684157
     name: postgres
     type: application
     urls:
     - https://amayache.github.io/pulsewatch_kubernetes/postgres-0.1.0.tgz
     version: 0.1.0
-  - apiVersion: v2
-    appVersion: 0.1.0
-    created: "2025-10-07T16:11:47.427235628+02:00"
-    digest: 235b9829ac27fdf88bed97f2470ddda06ceb28deb2e0b6fda45cfcb022447689
-    name: postgres
-    type: application
-    urls:
-    - https://amayache.github.io/pulsewatch_kubernetes/charts/postgres-0.1.0.tgz
-    version: 0.1.0
   redis:
   - apiVersion: v2
     appVersion: 7-alpine
-    created: "2025-10-07T16:11:47.395823728+02:00"
-    digest: 7f12999afb80174e7dc9d0afe4f22331fdfc610dd0e5408b0306c5fac7af21cc
+    created: "2025-10-07T17:29:29.84549223+02:00"
+    digest: abf239fa204e889535ff2e6df1136282778e055a0738043c888944face226db3
     name: redis
     type: application
     urls:
     - https://amayache.github.io/pulsewatch_kubernetes/redis-0.1.0.tgz
     version: 0.1.0
-  - apiVersion: v2
-    appVersion: 7-alpine
-    created: "2025-10-07T16:11:47.433836748+02:00"
-    digest: 6d09c0eb260cac7c2161924c635349a623ef6787f6df4777e87a92fc8664b6dd
-    name: redis
-    type: application
-    urls:
-    - https://amayache.github.io/pulsewatch_kubernetes/charts/redis-0.1.0.tgz
-    version: 0.1.0
   web:
   - apiVersion: v2
     appVersion: 0.1.0
-    created: "2025-10-07T16:11:47.401260535+02:00"
+    created: "2025-10-07T17:29:29.849712233+02:00"
     description: A Helm chart for Kubernetes to deploy PulseWatch Web
-    digest: 529e82ca5591a5dce10e0a8b14b1c3366fa52130161606dbb31deffa3c1fa5fb
+    digest: f12bef97de6fea73f380e6666a9c3c7016c77758b01890a1afa202bcbf7a1fc2
     name: web
     type: application
     urls:
     - https://amayache.github.io/pulsewatch_kubernetes/web-0.1.0.tgz
     version: 0.1.0
-  - apiVersion: v2
-    appVersion: 0.1.0
-    created: "2025-10-07T16:11:47.440020628+02:00"
-    description: A Helm chart for Kubernetes to deploy PulseWatch Web
-    digest: 6d8bf65e3dbb2092a9f3434cdcfe6254820112e789c78d54450f1b49eac257df
-    name: web
-    type: application
-    urls:
-    - https://amayache.github.io/pulsewatch_kubernetes/charts/web-0.1.0.tgz
-    version: 0.1.0
   worker:
   - apiVersion: v2
     appVersion: 0.1.0
-    created: "2025-10-07T16:11:47.407006611+02:00"
-    digest: f65ff9692b54f88fc3f401bc2032105cdfaf1b2dcf1cf471477da03941184d30
+    created: "2025-10-07T17:29:29.853695493+02:00"
+    digest: 507929ed5320653cb6b304ff058e509fe1760a185a725d2d92564b90fb79f0ca
     name: worker
     type: application
     urls:
     - https://amayache.github.io/pulsewatch_kubernetes/worker-0.1.0.tgz
     version: 0.1.0
-  - apiVersion: v2
-    appVersion: 0.1.0
-    created: "2025-10-07T16:11:47.446074625+02:00"
-    digest: 27995649bbfcc8d4f2e6154e8836822f6372e89a1e7285ffe4c1853bc11f851b
-    name: worker
-    type: application
-    urls:
-    - https://amayache.github.io/pulsewatch_kubernetes/charts/worker-0.1.0.tgz
-    version: 0.1.0
-generated: "2025-10-07T16:11:47.364435234+02:00"
+generated: "2025-10-07T17:29:29.824407322+02:00"
