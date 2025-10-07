@@ -2,13 +2,18 @@ manageNamespace: false
 
 image:
   repository: pulsewatch-api
-  tag: dev
+  tag: prod
   pullPolicy: IfNotPresent
 
 ports:
   http: 3001
 health:
   path: /health
+
+env:
+  HOST: "0.0.0.0"
+  PORT: "3001"
+  NODE_ENV: "production"
 
 secret:
   name: api-secrets

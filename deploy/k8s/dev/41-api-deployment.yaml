@@ -11,7 +11,7 @@ spec:
     spec:
       containers:
         - name: api
-          image: pulsewatch-api:dev
+          image: pulsewatch-api:prod
           imagePullPolicy: IfNotPresent
           ports: [{ name: http, containerPort: 3001 }]
           envFrom:
