@@ -1,7 +1,7 @@
 manageNamespace: false
 
 image:
-  repository: pulsewatch-api
+  repository: docker.io/amayache/pulsewatch-api
   tag: prod
   pullPolicy: IfNotPresent
 

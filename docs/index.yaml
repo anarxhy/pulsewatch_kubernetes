@@ -1,0 +1,64 @@
+apiVersion: v1
+entries:
+  api:
+  - apiVersion: v2
+    appVersion: 0.1.0
+    created: "2025-10-07T17:29:29.829979018+02:00"
+    digest: 6a4b35d29ed996729f522909ecc09c07caf4ccb975cf42194025484d5d32928a
+    name: api
+    type: application
+    urls:
+    - https://amayache.github.io/pulsewatch_kubernetes/api-0.1.0.tgz
+    version: 0.1.0
+  flyway:
+  - apiVersion: v2
+    appVersion: "10"
+    created: "2025-10-07T17:29:29.836116517+02:00"
+    digest: 557928db8c1d89f2c96ab0194a7fc404563c84b4f9acbae30c3f5ebfcc3f05a2
+    name: flyway
+    type: application
+    urls:
+    - https://amayache.github.io/pulsewatch_kubernetes/flyway-0.1.0.tgz
+    version: 0.1.0
+  postgres:
+  - apiVersion: v2
+    appVersion: 0.1.0
+    created: "2025-10-07T17:29:29.841679902+02:00"
+    digest: bb14313b9c992c3eeac3ee6b6fa320bb7278e65f1d7f153c9ed984c338684157
+    name: postgres
+    type: application
+    urls:
+    - https://amayache.github.io/pulsewatch_kubernetes/postgres-0.1.0.tgz
+    version: 0.1.0
+  redis:
+  - apiVersion: v2
+    appVersion: 7-alpine
+    created: "2025-10-07T17:29:29.84549223+02:00"
+    digest: abf239fa204e889535ff2e6df1136282778e055a0738043c888944face226db3
+    name: redis
+    type: application
+    urls:
+    - https://amayache.github.io/pulsewatch_kubernetes/redis-0.1.0.tgz
+    version: 0.1.0
+  web:
+  - apiVersion: v2
+    appVersion: 0.1.0
+    created: "2025-10-07T17:29:29.849712233+02:00"
+    description: A Helm chart for Kubernetes to deploy PulseWatch Web
+    digest: f12bef97de6fea73f380e6666a9c3c7016c77758b01890a1afa202bcbf7a1fc2
+    name: web
+    type: application
+    urls:
+    - https://amayache.github.io/pulsewatch_kubernetes/web-0.1.0.tgz
+    version: 0.1.0
+  worker:
+  - apiVersion: v2
+    appVersion: 0.1.0
+    created: "2025-10-07T17:29:29.853695493+02:00"
+    digest: 507929ed5320653cb6b304ff058e509fe1760a185a725d2d92564b90fb79f0ca
+    name: worker
+    type: application
+    urls:
+    - https://amayache.github.io/pulsewatch_kubernetes/worker-0.1.0.tgz
+    version: 0.1.0
+generated: "2025-10-07T17:29:29.824407322+02:00"
