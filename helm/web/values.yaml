@@ -2,7 +2,7 @@ manageNamespace: false
 replicaCount: 1
 
 image:
-  repository: pulsewatch-web
+  repository: amayache/pulsewatch-web
   tag: prod
   pullPolicy: IfNotPresent
 
