@@ -3,7 +3,7 @@ manageNamespace: false
 replicaCount: 1
 
 image:
-  repository: amayache/pulsewatch-worker
+  repository: docker.io/amayache/pulsewatch-worker
   tag: prod
   pullPolicy: IfNotPresent
 
