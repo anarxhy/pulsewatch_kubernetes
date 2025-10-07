@@ -11,7 +11,7 @@ spec:
     spec:
       containers:
         - name: worker
-          image: pulsewatch-worker:dev
+          image: pulsewatch-worker::prod
           imagePullPolicy: IfNotPresent
           envFrom:
             - secretRef: { name: worker-secrets }

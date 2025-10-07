@@ -4,7 +4,7 @@ replicaCount: 1
 
 image:
   repository: pulsewatch-worker
-  tag: dev
+  tag: prod
   pullPolicy: IfNotPresent
 
 # Secret values
