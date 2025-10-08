@@ -1,0 +1,67 @@
+# .github/workflows/release-helm.yml
+name: Release Helm Charts
+
+on:
+  push:
+    branches: [ helm/prod ]
+    paths:
+      - 'helm/**'
+      - '.github/workflows/release-helm.yml'
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: release-helm
+  cancel-in-progress: false
+
+jobs:
+  package:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Ensure Pages layout
+        run: |
+          mkdir -p docs/charts
+          touch docs/.nojekyll
+
+      - name: Setup Helm
+        uses: azure/setup-helm@v4
+        with:
+          version: v3.14.4
+
+      - name: Lint + Package charts
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -rf docs/charts/*.tgz || true
+          for c in helm/*; do
+            [ -d "$c" ] || continue
+            helm lint "$c"
+            helm package "$c" -d docs/charts
+          done
+
+      - name: Build/merge index.yaml
+        shell: bash
+        run: |
+          set -euo pipefail
+          BASE_URL="https://amayache.github.io/pulsewatch_kubernetes/"
+          if [ -f docs/index.yaml ]; then
+            helm repo index docs --url "$BASE_URL" --merge docs/index.yaml
+          else
+            helm repo index docs --url "$BASE_URL"
+          fi
+
+      - name: Commit and push
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name  "github-actions"
+          git config user.email "actions@github.com"
+          git add docs/.nojekyll docs/charts/*.tgz docs/index.yaml
+          git commit -m "charts: $(date -u +'%Y-%m-%d %H:%M:%S UTC')" || exit 0
+          git push
