@@ -1,0 +1,64 @@
+apiVersion: v1
+entries:
+  api:
+  - apiVersion: v2
+    appVersion: 0.1.0
+    created: "2025-10-08T09:40:28.884156401Z"
+    digest: c9842c418e60ea0331b5a6c918b4be1600ed0fc9dc346ddcc5197dc0a72add96
+    name: api
+    type: application
+    urls:
+    - https://amayache.github.io/pulsewatch_kubernetes/charts/api-0.1.0.tgz
+    version: 0.1.0
+  flyway:
+  - apiVersion: v2
+    appVersion: "10"
+    created: "2025-10-08T09:40:28.884594436Z"
+    digest: 92bad0b24fb3920af7b4f01bebf23f358bcdf9ebe51f4d9613ae9189a0345a5c
+    name: flyway
+    type: application
+    urls:
+    - https://amayache.github.io/pulsewatch_kubernetes/charts/flyway-0.1.0.tgz
+    version: 0.1.0
+  postgres:
+  - apiVersion: v2
+    appVersion: 0.1.0
+    created: "2025-10-08T09:40:28.884822243Z"
+    digest: adae185f78074865f3c7af5f684204e34236e9baeaf0ba15b946a8899c1a4f66
+    name: postgres
+    type: application
+    urls:
+    - https://amayache.github.io/pulsewatch_kubernetes/charts/postgres-0.1.0.tgz
+    version: 0.1.0
+  redis:
+  - apiVersion: v2
+    appVersion: 7-alpine
+    created: "2025-10-08T09:40:28.885033609Z"
+    digest: 009e5bf5a4d0c98e1338d2fd83c1cf7473313fff3a62ff2b3946e50bb588b884
+    name: redis
+    type: application
+    urls:
+    - https://amayache.github.io/pulsewatch_kubernetes/charts/redis-0.1.0.tgz
+    version: 0.1.0
+  web:
+  - apiVersion: v2
+    appVersion: 0.1.0
+    created: "2025-10-08T09:40:28.885270983Z"
+    description: A Helm chart for Kubernetes to deploy PulseWatch Web
+    digest: 8c95b4f14ee2d72c1d40d70528d2c32ca77fd9abaad0396f1f5e7dbedd9df491
+    name: web
+    type: application
+    urls:
+    - https://amayache.github.io/pulsewatch_kubernetes/charts/web-0.1.0.tgz
+    version: 0.1.0
+  worker:
+  - apiVersion: v2
+    appVersion: 0.1.0
+    created: "2025-10-08T09:40:28.885467221Z"
+    digest: b36919e01f9814d942e4998bb272f369e1578a95e6f2b8303bb1894ba29df651
+    name: worker
+    type: application
+    urls:
+    - https://amayache.github.io/pulsewatch_kubernetes/charts/worker-0.1.0.tgz
+    version: 0.1.0
+generated: "2025-10-08T09:40:28.883363917Z"
