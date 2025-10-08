@@ -5,6 +5,7 @@ metadata:
   namespace: pulsewatch
   annotations:
     nginx.ingress.kubernetes.io/proxy-read-timeout: "60"
+    nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   ingressClassName: nginx
   rules:
