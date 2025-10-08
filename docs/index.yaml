@@ -3,8 +3,8 @@ entries:
   api:
   - apiVersion: v2
     appVersion: 0.1.0
-    created: "2025-10-08T13:06:07.733173125Z"
-    digest: 25ae18cbdd20f4818ff68103020b55ec8b1a91c6caa8168d949938eccdda4a03
+    created: "2025-10-08T14:11:11.493087545Z"
+    digest: 8d1b5634c7fa5ff6b869cf0d1798f26ad7ab8aaad506236b97dc648ab85597fc
     name: api
     type: application
     urls:
@@ -13,8 +13,8 @@ entries:
   flyway:
   - apiVersion: v2
     appVersion: "10"
-    created: "2025-10-08T13:06:07.733350968Z"
-    digest: e5c64d8435324e6c067cda44c353d304a2a55de2029f5d440f3fd049aad92ceb
+    created: "2025-10-08T14:11:11.493265186Z"
+    digest: 2034cf5a15efebdd56eea092a69876df1c942c3880259d9fe853fa00b4d56a94
     name: flyway
     type: application
     urls:
@@ -23,8 +23,8 @@ entries:
   postgres:
   - apiVersion: v2
     appVersion: 0.1.0
-    created: "2025-10-08T13:06:07.733522669Z"
-    digest: f9b5c361c7a55f6855c499b3efe2216dc3f722a601d5e15c8ef6c32f633e7ddd
+    created: "2025-10-08T14:11:11.493462794Z"
+    digest: d01f796a640db1e097929b4c6df22547a3b8f4455c0d9fcb94cf001a555178a8
     name: postgres
     type: application
     urls:
@@ -33,8 +33,8 @@ entries:
   redis:
   - apiVersion: v2
     appVersion: 7-alpine
-    created: "2025-10-08T13:06:07.733710491Z"
-    digest: 9a57576d84473097f992dd1487ee96379261c7d5be6a502571b07efe20c73be2
+    created: "2025-10-08T14:11:11.4937082Z"
+    digest: 32830f39d2138b5e89fb5789901d84ec29fcad88a2dcbbc8ee6062199bae9161
     name: redis
     type: application
     urls:
@@ -43,9 +43,9 @@ entries:
   web:
   - apiVersion: v2
     appVersion: 0.1.0
-    created: "2025-10-08T13:06:07.73393434Z"
+    created: "2025-10-08T14:11:11.493968144Z"
     description: A Helm chart for Kubernetes to deploy PulseWatch Web
-    digest: b67cd1ed21372c1ea987f71726c02d214d2b145d467f0c05384f5bad60ce5679
+    digest: 68a206ed99199786b15c3d0ade59897c84d365d5c128616b78d1324ae6c2c031
     name: web
     type: application
     urls:
@@ -54,11 +54,11 @@ entries:
   worker:
   - apiVersion: v2
     appVersion: 0.1.0
-    created: "2025-10-08T13:06:07.734114517Z"
-    digest: f38f2f60928b622bcc1046e4e8e244c00e03615ee1b0822a64539c31b153330e
+    created: "2025-10-08T14:11:11.494153068Z"
+    digest: 669cbd977e3db66620da3c7c2b9e9d370ecb98baf7dd50c5b54bf2eb86fa1116
     name: worker
     type: application
     urls:
     - https://amayache.github.io/pulsewatch_kubernetes/charts/worker-0.1.0.tgz
     version: 0.1.0
-generated: "2025-10-08T13:06:07.732830984Z"
+generated: "2025-10-08T14:11:11.492726132Z"
